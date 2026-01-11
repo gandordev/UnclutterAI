@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "version": "1.0",
+  "name": "UnclutterAI",
+  "description": "A lightweight browser extension that blocks subscription reminders.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*"
+      ],
+      "js": ["main.js"]
+    }
+  ]
+}
