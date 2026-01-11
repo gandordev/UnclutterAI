@@ -15,9 +15,6 @@ const ELEMENTS_TO_HIDE = [
 ];
 
 
-
-
-
 function hideElements() {
     try {
         ELEMENTS_TO_HIDE.forEach(selector => {
