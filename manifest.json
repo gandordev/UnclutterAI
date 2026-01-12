@@ -1,8 +1,9 @@
 {
-  "manifest_version": 2,
-  "version": "1.0",
+  "manifest_version": 3,
+  "version": "1.0.1",
   "name": "UnclutterAI",
-  "description": "A lightweight browser extension that blocks subscription reminders.",
+  "description": "A lightweight browser extension that blocks subscription reminders on AI platforms.",
+  "author": "Gabriel Ramos López",
   "content_scripts": [
     {
       "matches": [
@@ -11,7 +12,13 @@
         "https://chat.openai.com/*",
         "https://gemini.google.com/*"
       ],
-      "js": ["main.js"]
+      "js": [
+        "unclutter.js"
+      ]
     }
-  ]
+  ],
+  "icons": {
+    "32": "icon/icon.png",
+    "64": "icon/icon@2x.png"
+  }
 }
