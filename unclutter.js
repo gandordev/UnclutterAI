@@ -9,19 +9,32 @@ const ELEMENTS_TO_HIDE = [
     'div[style="opacity: 1;"] div.bg-base div.relative.border-subtlest.ring-subtlest.divide-subtlest.bg-subtler', // subscription btn (bottom)
     '[data-testid="sidebar-upgrade-button"]', // subscription btn (left)
     '[class*="gap-xs flex flex-col items-center"]', // install browser btn (left)
+    'div.gap-sm.flex.col-start-1.row-start-2.-ml-two', // prompt input btns
 
     /* Gemini */
     'div.right-section' // try Google AI Plus
 ];
 
 
+// Add observer
+const observer = new MutationObserver(hideElements);
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+});
+
+// Add listener to changing events
+EVENTS = ["change", "cuechange"]
+EVENTS.forEach(event => {
+    windows.addEventListener(event, () => { hideElements(); });
+});
+
+
 function hideElements() {
     try {
         ELEMENTS_TO_HIDE.forEach(selector => {
             const tag = document.querySelector(selector);
-            if (tag) {
-                tag.style.display = "none";
-            }
+            if (tag) tag.remove();
         });
     }
     catch (e) {
@@ -48,11 +61,3 @@ function unlockScrollBody() {
         .click();
     }
 }
-
-
-// Add observer
-const observer = new MutationObserver(hideElements);
-observer.observe(document.body, {
-    childList: true, 
-    subtree: true 
-});
