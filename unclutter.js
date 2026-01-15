@@ -14,6 +14,7 @@ const ELEMENTS_TO_HIDE = [
     /* Gemini */
     'div.right-section' // try Google AI Plus
 ];
+const EVENTS = ["change", "cuechange"]
 
 
 // Add observer
@@ -24,9 +25,8 @@ observer.observe(document.body, {
 });
 
 // Add listener to changing events
-EVENTS = ["change", "cuechange"]
 EVENTS.forEach(event => {
-    windows.addEventListener(event, () => { hideElements(); });
+    document.addEventListener(event, () => { hideElements(); });
 });
 
 
