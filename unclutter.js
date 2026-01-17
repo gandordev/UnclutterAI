@@ -20,7 +20,7 @@ const EVENTS = ["change", "cuechange"]
 
 /**
  * Watch for changes being made to the DOM tree.
- * @param {MutationCallback} deleteElements Defines what shoud happen
+ * @param {MutationCallback} deleteElements Defines what should happen
  * @returns {void}
  */
 const observer = new MutationObserver(deleteElements);
@@ -47,7 +47,7 @@ function deleteElements() {
     let loggedOutOption = document.querySelector('a.text-token-text-secondary.mt-5.cursor-pointer.text-sm.font-semibold.underline')
     if (document.URL.includes("chatgpt") && loggedOutOption) {
         unlockScrollBody(loggedOutOption);
-        return; // Avoid to delete a non-existent element
+        return; // Prevent deletion of a non-existent element
     }
 
     try {
